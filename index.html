@@ -13,9 +13,9 @@
 </head>
 
 <body data-bs-theme="dark">
-    <nav class="navbar navbar-expand-lg sticky-top" style="background-color: #6f6486;">
+    <nav class="navbar navbar-expand-lg sticky-top bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" onclick="introduce_page()">
                 <span class="mx-0" style="font-size: 30px;color: white;">J</span>
                 <span class="mx-0 text-warning">blog</span>
             </a>
@@ -25,16 +25,16 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="nav justify-content-end">
                     <li class="nav-item" id="introduce">
-                        <a class="nav-link text-reset" onclick="op_introduce()">關於我</a>
+                        <a class="nav-link text-reset" onclick="introduce_page()">關於我</a>
                     </li>
                     <li class="nav-item" id="log">
-                        <a class="nav-link text-reset" onclick="op_log()">獲獎紀錄</a>
+                        <a class="nav-link text-reset" onclick="log_page()">獲獎紀錄</a>
                     </li>
                     <li class="nav-item" id="project">
-                        <a class="nav-link text-reset" onclick="op_project()">專案</a>
+                        <a class="nav-link text-reset" onclick="project_page()">專案</a>
                     </li>
                     <li class="nav-item" id="publish">
-                        <a class="nav-link text-reset" onclick="op_publish()">發表</a>
+                        <a class="nav-link text-reset" onclick="publish_page()">發表</a>
                     </li>
                 </ul>
             </div>
@@ -42,6 +42,11 @@
     </nav>
     <div id="app">
     </div>
+    <nav class="navbar fixed-bottom bg-dark">
+        <div class="container d-flex justify-content-center">
+            Copyright © 2023 Jonny | 製作者 Jonny
+        </div>
+    </nav>
 
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="./js/bootstrap.bundle.min.js"></script>
@@ -49,7 +54,26 @@
     <script defer src="/js/fontawesome/solid.js"></script>
     <script defer src="/js/fontawesome/fontawesome.js"></script>
     <script>
-        $('#app').ready(op_introduce());
+        $('#app').ready(introduce_page());
+
+        document.oncontextmenu = function() {
+            return false;
+        } //禁止右鍵
+        document.onselectstart = function() {
+            return false;
+        } //禁止拖拉選取(反白)
+
+        // 禁止開啟F12及頁面存檔
+        document.onkeydown = function(e) {
+            let keyCode = e.keyCode || e.which || e.charCode;
+            let ctrlKey = e.ctrlKey || e.metaKey;
+            if (ctrlKey && (keyCode === 83 || keyCode === 85 || keyCode === 79)) {
+                e.preventDefault();
+                return false;
+            } else if (keyCode && keyCode === 123) {
+                return false;
+            }
+        }
 
         function init_nav_item() {
             $('#introduce').removeClass('active');
@@ -58,7 +82,15 @@
             $('#publish').removeClass('active');
         }
 
-        function op_introduce() {
+        function main_page() {
+            var data = $.get("main.html", function(data) {
+                $('#app').html(data);
+            });
+            init_nav_item();
+        }
+
+
+        function introduce_page() {
             var data = $.get("introduce.html", function(data) {
                 $('#app').html(data);
             });
@@ -66,7 +98,7 @@
             $('#introduce').addClass('active');
         }
 
-        function op_log() {
+        function log_page() {
             var data = $.get("log.html", function(data) {
                 $('#app').html(data);
             });
@@ -74,7 +106,7 @@
             $('#log').addClass('active');
         }
 
-        function op_project() {
+        function project_page() {
             var data = $.get("project.html", function(data) {
                 $('#app').html(data);
             });
@@ -82,7 +114,7 @@
             $('#project').addClass('active');
         }
 
-        function op_publish() {
+        function publish_page() {
             var data = $.get("publish.html", function(data) {
                 $('#app').html(data);
             });
