@@ -1,5 +1,6 @@
 $('#app').ready(function(){
     introduce_page();
+    is_mobile();
 });
 
 // document.oncontextmenu = function () {
@@ -20,6 +21,15 @@ $('#app').ready(function(){
 //         return false;
 //     }
 // }
+
+function is_mobile() {
+    try {
+        document.createEvent("TouchEvent");
+        $('#footer').removeClass('fixed-bottom');
+    } catch (e) {
+        $('#footer').addClass('fixed-bottom');
+    }
+}
 
 function init_nav_item() {
     $('#introduce').removeClass('active');
