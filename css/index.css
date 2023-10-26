@@ -1,6 +1,17 @@
+html, body{
+    margin: 0px;
+    height: 100%;
+}
+
 body {
     cursor: default;
+    overflow: hidden;
+}
+
+.scroll-box {
+    height: 100%;
     overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .navbar-brand {
