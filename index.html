@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh_TW">
+<html lang="zh_TW" class="h-100">
 
 <head>
     <meta charset="UTF-8">
@@ -14,8 +14,8 @@
     <link href="./css/bootstrap.min.css" rel="stylesheet">
 </head>
 
-<body data-bs-theme="dark">
-    <nav class="navbar navbar-expand-lg sticky-top bg-dark">
+<body data-bs-theme="dark" class="d-flex flex-column h-100">
+    <header class="navbar navbar-expand-lg sticky-top bg-dark">
         <div class="container">
             <a class="navbar-brand" onclick="introduce_page()">
                 <span class="mx-0" style="font-size: 30px;">J</span>
@@ -41,14 +41,14 @@
                 </ul>
             </div>
         </div>
-    </nav>
+    </header>
     <div id="app">
     </div>
-    <nav id="footer" class="navbar bg-dark">
+    <footer class="footer mt-auto py-2 bg-dark">
         <div class="container d-flex justify-content-center">
             Copyright © 2023 Jonny | 製作者 Jonny
         </div>
-    </nav>   
+    </footer>   
 
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="./js/bootstrap.bundle.min.js"></script>

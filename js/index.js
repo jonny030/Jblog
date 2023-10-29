@@ -1,33 +1,23 @@
 $('#app').ready(function(){
     introduce_page();
-    is_mobile();
 });
 
-// document.oncontextmenu = function () {
-//     return false;
-// } //禁止右鍵
-// document.onselectstart = function () {
-//     return false;
-// } //禁止拖拉選取(反白)
+document.oncontextmenu = function () {
+    return false;
+} //禁止右鍵
+document.onselectstart = function () {
+    return false;
+} //禁止拖拉選取(反白)
 
-// // 禁止開啟F12及頁面存檔
-// document.onkeydown = function (e) {
-//     let keyCode = e.keyCode || e.which || e.charCode;
-//     let ctrlKey = e.ctrlKey || e.metaKey;
-//     if (ctrlKey && (keyCode === 83 || keyCode === 85 || keyCode === 79)) {
-//         e.preventDefault();
-//         return false;
-//     } else if (keyCode && keyCode === 123) {
-//         return false;
-//     }
-// }
-
-function is_mobile() {
-    try {
-        document.createEvent("TouchEvent");
-        $('#footer').removeClass('fixed-bottom');
-    } catch (e) {
-        $('#footer').addClass('fixed-bottom');
+// 禁止開啟F12及頁面存檔
+document.onkeydown = function (e) {
+    let keyCode = e.keyCode || e.which || e.charCode;
+    let ctrlKey = e.ctrlKey || e.metaKey;
+    if (ctrlKey && (keyCode === 83 || keyCode === 85 || keyCode === 79)) {
+        e.preventDefault();
+        return false;
+    } else if (keyCode && keyCode === 123) {
+        return false;
     }
 }
 
