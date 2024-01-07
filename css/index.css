@@ -37,3 +37,8 @@ body {
     border-radius: 100%;
     border: solid 8px #ffc107;
 }
+
+.card-hover:hover{
+    border: solid 1px #ffc107;
+    transform: scale(1.005);
+}
