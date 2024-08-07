@@ -1,8 +1,16 @@
+.link {
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
 body {
     cursor: default;
     overflow-x: hidden;
 }
-
+    
 .footer{
     display: block;
 }
@@ -28,12 +36,9 @@ body {
 }
 
 .image {
-    background-image: url(../images/icon.png);
     width: 256px;
     height: 256px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    object-fit: cover;
     border-radius: 100%;
     border: solid 8px #ffc107;
 }
